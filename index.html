@@ -53,7 +53,8 @@
     // 8 interact with the tree - either way is OK
     $('button').on('click', function () {
       $('#jstree').jstree('select_node', 'arco_1');
-    });
+      $('#jstree').jstree('select_node', 'arco_1');
+      $.jstree.reference('#jstree').select_node('arco_1');    });
   });
   </script>
 </body>
