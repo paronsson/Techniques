@@ -35,8 +35,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
   <script>
   $(function () {
-    // 6 create an instance when the DOM is ready
-    $('#jstree').jstree();
+    // 6 create an instance when the DOM is ready    
+    $("#tree").jstree({
+      "core" : { // core options go here
+        "multiple" : false, // no multiselection
+        "themes" : {
+          "dots" : false // no connecting dots between dots
+        }
+      },
+      "plugins" : ["state"] // activate the state plugin on this instance
+    });
+
     // 7 bind to events triggered on the tree
     $('#jstree').on("changed.jstree", function (e, data) {
       console.log(data.selected);
