@@ -27,7 +27,7 @@
   <div id="jstree" style=" padding: 5px; margin: 5px;">
     <!-- in this example the tree is populated from inline HTML -->
     <ul>
-      <li id="techniques" class="jstree-open" class="jstree-clicked">Techniques
+      <li id="techniques" class="jstree-open" class="jstree-clicked"style="display: none;">Techniques
         <ul>
           <li id="arco" class="jstree-open">Arco
             <ul>
@@ -622,6 +622,8 @@
       $('#search_str').val("");
 	  $('#search_str').trigger("keyup");
     });
+    $('#techniques').show();
+
   });
   </script>
 </body>
