@@ -33,15 +33,6 @@
             <ul>
               <li id="arco_1">Arco_1
 				<ul>
-				  <li id="arco_1_1">Arco_1_1
-				    <ul>
-					  <li id="arco_1_1_1">Arco_1_1_1</li>
-					  <li id="arco_1_1_2">Arco_1_1_2</li>
-					  <li id="arco_1_1_3">Arco_1_1_3</li>
-					  <li id="arco_1_1_4">Arco_1_1_4</li>
-					  <li id="arco_1_1_5">Arco_1_1_5</li>
-					</ul>
-				  </li>
 				  <li id="arco_1_2">Arco_1_2
 				    <ul>
     				  <li id="arco_1_2_1">Arco_1_2_1</li>
@@ -49,6 +40,15 @@
 					  <li id="arco_1_2_3">Arco_1_2_3</li>
 					  <li id="arco_1_2_4">Arco_1_2_4</li>
 					  <li id="arco_1_2_5">Arco_1_2_5</li>
+					</ul>
+				  </li>
+				  <li id="arco_1_1">Arco_1_1
+				    <ul>
+					  <li id="arco_1_1_1">Arco_1_1_1</li>
+					  <li id="arco_1_1_2">Arco_1_1_2</li>
+					  <li id="arco_1_1_3">Arco_1_1_3</li>
+					  <li id="arco_1_1_4">Arco_1_1_4</li>
+					  <li id="arco_1_1_5">Arco_1_1_5</li>
 					</ul>
 				  </li>
 				  <li id="arco_1_3">Arco_1_3
@@ -594,7 +594,7 @@
 			'case_insensitive': true,
 			'show_only_matches' : true
 		},
-		"plugins" : [ "wholerow", "search", "type", "" ]
+		"plugins" : [ "wholerow", "search", "type", "sort" ]
 	});
     // 7 bind to events triggered on the tree
     $('#jstree').on("changed.jstree", function (e, data) {
@@ -611,7 +611,7 @@
 	$('#techniques_info').show();
 	
     // 8 interact with the tree - either way is OK
-    $('#jstree').jstree('select_node', 'technigues');
+    $('#jstree').jstree('select_node', 'techniques');
 	
 	$('#search_str').keyup(function(){
       $('#jstree').jstree(true).show_all();
