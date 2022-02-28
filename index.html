@@ -5,6 +5,13 @@
   <title>jsTree test</title>
   <!-- 2 load the theme CSS file -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+  <style>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
 <body>
   <div style="display: flex; flex-wrap: nowrap;">
@@ -20,7 +27,7 @@
   <div id="jstree" style=" padding: 5px; margin: 5px;">
     <!-- in this example the tree is populated from inline HTML -->
     <ul>
-      <li id="technigues" class="jstree-open" class="jstree-clicked">Techniques
+      <li id="techniques" class="jstree-open" class="jstree-clicked">Techniques
         <ul>
           <li id="arco" class="jstree-open">Arco
             <ul>
@@ -534,8 +541,23 @@
   </div>
   </div>
   <div style="flex-grow: 100; padding: 0px 10px 0px 10px; margin: 0px 10px 0px 10px; border-left: 2px solid gray; height; height: 100vh;">
+    <div id="techniques_info" class="info" style="display: none;">
       <h1 style="text-align: center;">Contemporary Techniques for Double Bass</h1>
-	 <iframe style="display: block; margin-left: auto; margin-right: auto;" width="434" height="240" src="https://www.youtube.com/embed/SHPFmlfBXVo?t=1143" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  <iframe style="display: block; margin-left: auto; margin-right: auto;" width="434" height="240" src="https://www.youtube.com/embed/SHPFmlfBXVo?t=1143" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div id="johannes_info" class="info" style="display: none;">
+      <h1 style="text-align: center;">Johannes är här</h1>
+    </div>
+    <div id="arco_info" class="info" style="display: none;">
+      <h1 style="text-align: center;">Arco: Bowing</h1>
+    </div>
+    <div id="brco_info" class="info" style="display: none;">
+      <h1 style="text-align: center;">Brco: Hitting</h1>
+    </div>
+    <div id="joakim_info" class="info" style="display: none;">
+      <h1 style="text-align: center;">Joakim är också här</h1>
+    </div>
+
 	</div>
   </div>
   </div>
@@ -559,12 +581,21 @@
 			'case_insensitive': true,
 			'show_only_matches' : true
 		},
-		"plugins" : [ "wholerow", "search", "type" ]
+		"plugins" : [ "wholerow", "search", "type", "" ]
 	});
     // 7 bind to events triggered on the tree
     $('#jstree').on("changed.jstree", function (e, data) {
-      console.log(data.seected);
+	  if (data.action === 'select_node')
+	  {
+        console.log(data.selected[0]);
+		id_info = '#' + data.selected[0] + '_info';
+		$('.info').hide();
+		$(id_info).show();
+		
+	  }
     });
+	$('.info').hide();
+	$('#techniques_info').show();
 	
     // 8 interact with the tree - either way is OK
     $('#jstree').jstree('select_node', 'technigues');
@@ -578,7 +609,6 @@
       $('#search_str').val("");
 	  $('#search_str').trigger("keyup");
     });
-
   });
   </script>
 </body>
