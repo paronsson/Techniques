@@ -1,630 +1,73 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>jsTree test</title>
-  <!-- 2 load the theme CSS file -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
-  <style>
-    .center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    <meta charset="UTF-8">
+
+    <title>Jspreadsheet CE table - basic demo</title>
+
+   <style>
+   .myButton {
+	box-shadow: 1px 1px 0px 0px #3d321b;
+    background:linear-gradient(to bottom, #eceffa 5%, #ffffff 100%);
+	background-color:#5c5f2a;
+	border-radius:2px;
+	border:1px solid #184b79;
+	display:block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:10px;
+	text-decoration:none;
+	text-color:#000000;
+	text-shadow:0px 1px 0px #2f6627;
+	width:90px;
+	height:100px;
     }
-  </style>
+    .myButton:hover {
+	 background:linear-gradient(to bottom, #ecefda 5%, #e4e7df 100%);
+	 background-color:#5c5f2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+	 background:linear-gradient(to bottom, #ecefca 5%, #e4e7ff 100%);
+	 background-color:#5c5f9a;
+
+}
+
+   </style>
 </head>
+
 <body>
-  <div style="display: flex; flex-wrap: nowrap;">
-  <div style="width: 320px;">
-    <div style="border: 1px solid gray; border-radius: 5px; display: box; width: 300px; padding: 5px; margin: 5px;">
-      <div style="margin-bottom: 10px;  block: max-conent;">Search</div>
-	  <div style="block: max-conent;">
-        <input id="search_str" type="text" style="width: 240px;">
-        <button id="search_clr">Clear</button>
-      </div>
-    </div>	
-  <!-- 3 setup a container element -->
-  <div id="jstree" style=" padding: 5px; margin: 5px;">
-    <!-- in this example the tree is populated from inline HTML -->
-    <ul>
-      <li id="techniques" class="jstree-open" class="jstree-clicked"style="display: none;">Techniques
-        <ul>
-          <li id="arco" class="jstree-open">Arco
-            <ul>
-              <li id="arco_1">Arco_1
-				<ul>
-				  <li id="arco_1_2">Arco_1_2
-				    <ul>
-    				  <li id="arco_1_2_1">Arco_1_2_1</li>
-					  <li id="arco_1_2_2">Arco_1_2_2</li>
-					  <li id="arco_1_2_3">Arco_1_2_3</li>
-					  <li id="arco_1_2_4">Arco_1_2_4</li>
-					  <li id="arco_1_2_5">Arco_1_2_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_1_1">Arco_1_1
-				    <ul>
-					  <li id="arco_1_1_1">Arco_1_1_1</li>
-					  <li id="arco_1_1_2">Arco_1_1_2</li>
-					  <li id="arco_1_1_3">Arco_1_1_3</li>
-					  <li id="arco_1_1_4">Arco_1_1_4</li>
-					  <li id="arco_1_1_5">Arco_1_1_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_1_3">Arco_1_3
-					<ul>
-    				  <li id="arco_1_3_1">Arco_1_3_1</li>
-					  <li id="arco_1_3_2">Arco_1_3_2</li>
-					  <li id="arco_1_3_3">Arco_1_3_3</li>
-					  <li id="arco_1_3_4">Arco_1_3_4</li>
-					  <li id="arco_1_3_5">Arco_1_3_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_1_4">Arco_1_4
-					<ul>
-    				  <li id="arco_1_4_1">Arco_1_4_1</li>
-					  <li id="arco_1_4_2">Arco_1_4_2</li>
-					  <li id="arco_1_4_3">Arco_1_4_3</li>
-					  <li id="arco_1_4_4">Arco_1_4_4</li>
-					  <li id="arco_1_4_5">Arco_1_4_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_1_5">Arco_1_5
-				    <ul>
-    				  <li id="arco_1_5_1">Arco_1_5_1</li>
-					  <li id="arco_1_5_2">Arco_1_5_2</li>
-					  <li id="arco_1_5_3">Arco_1_5_3</li>
-					  <li id="arco_1_5_4">Arco_1_5_4</li>
-					  <li id="arco_1_5_5">Arco_1_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="arco_2">Arco_2
-				<ul>
-				  <li id="arco_2_1">Arco_2_1
-				    <ul>
-					  <li id="arco_2_1_1">Arco_2_1_1</li>
-					  <li id="arco_2_1_2">Arco_2_1_2</li>
-					  <li id="arco_2_1_3">Arco_2_1_3</li>
-					  <li id="arco_2_1_4">Arco_2_1_4</li>
-					  <li id="arco_2_1_5">Arco_2_1_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_2_2">Arco_2_2
-				    <ul>
-    				  <li id="arco_2_2_1">Arco_2_2_1</li>
-					  <li id="arco_2_2_2">Arco_2_2_2</li>
-					  <li id="arco_2_2_3">Arco_2_2_3</li>
-					  <li id="arco_2_2_4">Arco_2_2_4</li>
-					  <li id="arco_2_2_5">Arco_2_2_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_2_3">Arco_2_3
-					<ul>
-    				  <li id="arco_2_3_1">Arco_2_3_1</li>
-					  <li id="arco_2_3_2">Arco_2_3_2</li>
-					  <li id="arco_2_3_3">Arco_2_3_3</li>
-					  <li id="arco_2_3_4">Arco_2_3_4</li>
-					  <li id="arco_2_3_5">Arco_2_3_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_2_4">Arco_2_4
-					<ul>
-    				  <li id="arco_2_4_1">Arco_2_4_1</li>
-					  <li id="arco_2_4_2">Arco_2_4_2</li>
-					  <li id="arco_2_4_3">Arco_2_4_3</li>
-					  <li id="arco_2_4_4">Arco_2_4_4</li>
-					  <li id="arco_2_4_5">Arco_2_4_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_2_5">Arco_2_5
-				    <ul>
-    				  <li id="arco_2_5_1">Arco_2_5_1</li>
-					  <li id="arco_2_5_2">Arco_2_5_2</li>
-					  <li id="arco_2_5_3">Arco_2_5_3</li>
-					  <li id="arco_2_5_4">Arco_2_5_4</li>
-					  <li id="arco_2_5_6">Arco_2_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="arco_3">Arco_3
-				<ul>
-				  <li id="arco_3_1">Arco_3_1
-				    <ul>
-					  <li id="arco_3_1_1">Arco_3_1_1</li>
-					  <li id="arco_3_1_2">Arco_3_1_2</li>
-					  <li id="arco_3_1_3">Arco_3_1_3</li>
-					  <li id="arco_3_1_4">Arco_3_1_4</li>
-					  <li id="arco_3_1_5">Arco_3_1_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_3_2">Arco_3_2
-				    <ul>
-    				  <li id="arco_3_2_1">Arco_3_2_1</li>
-					  <li id="arco_3_2_2">Arco_3_2_2</li>
-					  <li id="arco_3_2_3">Arco_3_2_3</li>
-					  <li id="arco_3_2_4">Arco_3_2_4</li>
-					  <li id="arco_3_2_5">Arco_3_2_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_3_3">Arco_3_3
-					<ul>
-    				  <li id="arco_3_3_1">Arco_3_3_1</li>
-					  <li id="arco_3_3_2">Arco_3_3_2</li>
-					  <li id="arco_3_3_3">Arco_3_3_3</li>
-					  <li id="arco_3_3_4">Arco_3_3_4</li>
-					  <li id="arco_3_3_5">Arco_3_3_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_3_4">Arco_3_4
-					<ul>
-    				  <li id="arco_3_4_1">Arco_3_4_1</li>
-					  <li id="arco_3_4_2">Arco_3_4_2</li>
-					  <li id="arco_3_4_3">Arco_3_4_3</li>
-					  <li id="arco_3_4_4">Arco_3_4_4</li>
-					  <li id="arco_3_4_5">Arco_3_4_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_3_5">Arco_3_5
-				    <ul>
-    				  <li id="arco_3_5_1">Arco_3_5_1</li>
-					  <li id="arco_3_5_2">Arco_3_5_2</li>
-					  <li id="arco_3_5_3">Arco_3_5_3</li>
-					  <li id="arco_3_5_4">Arco_3_5_4</li>
-					  <li id="arco_3_5_5">Arco_3_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="arco_4">Arco_4
-				<ul>
-				  <li id="arco_4_1">Arco_4_1
-				    <ul>
-					  <li id="arco_4_1_1">Arco_4_1_1</li>
-					  <li id="arco_4_1_2">Arco_4_1_2</li>
-					  <li id="arco_4_1_3">Arco_4_1_3</li>
-					  <li id="arco_4_1_4">Arco_4_1_4</li>
-					  <li id="arco_4_1_5">Arco_4_1_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_4_2">Arco_4_2
-				    <ul>
-    				  <li id="arco_4_2_1">Arco_4_2_1</li>
-					  <li id="arco_4_2_2">Arco_4_2_2</li>
-					  <li id="arco_4_2_3">Arco_4_2_3</li>
-					  <li id="arco_4_2_4">Arco_4_2_4</li>
-					  <li id="arco_4_2_5">Arco_4_2_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_4_3">Arco_4_3
-					<ul>
-    				  <li id="arco_4_3_1">Arco_4_3_1</li>
-					  <li id="arco_4_3_2">Arco_4_3_2</li>
-					  <li id="arco_4_3_3">Arco_4_3_3</li>
-					  <li id="arco_4_3_4">Arco_4_3_4</li>
-					  <li id="arco_4_3_5">Arco_4_3_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_4_4">Arco_4_4
-					<ul>
-    				  <li id="arco_4_4_1">Arco_4_4_1</li>
-					  <li id="arco_4_4_2">Arco_4_4_2</li>
-					  <li id="arco_4_4_3">Arco_4_4_3</li>
-					  <li id="arco_4_4_4">Arco_4_4_4</li>
-					  <li id="arco_4_4_5">Arco_4_4_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_4_5">Arco_4_5
-				    <ul>
-    				  <li id="arco_4_5_1">Arco_4_5_1</li>
-					  <li id="arco_4_5_2">Arco_4_5_2</li>
-					  <li id="arco_4_5_3">Arco_4_5_3
-						<ul>
-					      <li id="joakim">Joakim</li>
-						</ul>
-					  </li>
-					  <li id="arco_4_5_4">Arco_4_5_4</li>
-					  <li id="arco_4_5_5">Arco_4_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="arco_5">Arco_5
-				<ul>
-				  <li id="arco_5_1">Arco_5_1
-				    <ul>
-					  <li id="arco_5_1_1">Arco_5_1_1</li>
-					  <li id="arco_5_1_2">Arco_5_1_2</li>
-					  <li id="arco_5_1_3">Arco_5_1_3</li>
-					  <li id="arco_5_1_4">Arco_5_1_4</li>
-					  <li id="arco_5_1_5">Arco_5_1_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_5_2">Arco_5_2
-				    <ul>
-    				  <li id="arco_5_2_1">Arco_5_2_1</li>
-					  <li id="arco_5_2_2">Arco_5_2_2</li>
-					  <li id="arco_5_2_3">Arco_5_2_3</li>
-					  <li id="arco_5_2_4">Arco_5_2_4</li>
-					  <li id="arco_5_2_5">Arco_5_2_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_5_3">Arco_5_3
-					<ul>
-    				  <li id="arco_5_3_1">Arco_5_3_1</li>
-					  <li id="arco_5_3_2">Arco_5_3_2</li>
-					  <li id="arco_5_3_3">Arco_5_3_3</li>
-					  <li id="arco_5_3_4">Arco_5_3_4</li>
-					  <li id="arco_5_3_5">Arco_5_3_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_5_4">Arco_5_4
-					<ul>
-    				  <li id="arco_5_4_1">Arco_5_4_1</li>
-					  <li id="arco_5_4_2">Arco_5_4_2</li>
-					  <li id="arco_5_4_3">Arco_5_4_3</li>
-					  <li id="arco_5_4_4">Arco_5_4_4</li>
-					  <li id="arco_5_4_5">Arco_5_4_5</li>
-					</ul>
-				  </li>
-				  <li id="arco_5_5">Arco_5_5
-				    <ul>
-    				  <li id="arco_5_5_1">Arco_5_5_1</li>
-					  <li id="arco_5_5_2">Arco_5_5_2</li>
-					  <li id="arco_5_5_3">Arco_5_5_3</li>
-					  <li id="arco_5_5_4">Arco_5_5_4</li>
-					  <li id="arco_5_5_5">Arco_5_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-          </li>
-		</ul>
-		  <li id="brco" class="jstree-open">Brco
-            <ul>
-              <li id="brco_1">Brco_1
-				<ul>
-				  <li id="brco_1_1">Brco_1_1
-				    <ul>
-					  <li id="brco_1_1_1">Brco_1_1_1</li>
-					  <li id="brco_1_1_2">Brco_1_1_2</li>
-					  <li id="brco_1_1_3">Brco_1_1_3</li>
-					  <li id="brco_1_1_4">Brco_1_1_4</li>
-					  <li id="brco_1_1_5">Brco_1_1_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_1_2">Brco_1_2
-				    <ul>
-    				  <li id="brco_1_2_1">Brco_1_2_1</li>
-					  <li id="brco_1_2_2">Brco_1_2_2</li>
-					  <li id="brco_1_2_3">Brco_1_2_3</li>
-					  <li id="brco_1_2_4">Brco_1_2_4</li>
-					  <li id="brco_1_2_5">Brco_1_2_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_1_3">Brco_1_3
-					<ul>
-    				  <li id="brco_1_3_1">Brco_1_3_1</li>
-					  <li id="brco_1_3_2">Brco_1_3_2</li>
-					  <li id="brco_1_3_3">Brco_1_3_3</li>
-					  <li id="brco_1_3_4">Brco_1_3_4</li>
-					  <li id="brco_1_3_5">Brco_1_3_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_1_4">Brco_1_4
-					<ul>
-    				  <li id="brco_1_4_1">Brco_1_4_1</li>
-					  <li id="brco_1_4_2">Brco_1_4_2</li>
-					  <li id="brco_1_4_3">Brco_1_4_3</li>
-					  <li id="brco_1_4_4">Brco_1_4_4</li>
-					  <li id="brco_1_4_5">Brco_1_4_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_1_5">Brco_1_5
-				    <ul>
-    				  <li id="brco_1_5_1">Brco_1_5_1</li>
-					  <li id="brco_1_5_2">Brco_1_5_2</li>
-					  <li id="brco_1_5_3">Brco_1_5_3</li>
-					  <li id="brco_1_5_4">Brco_1_5_4</li>
-					  <li id="brco_1_5_5">Brco_1_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="brco_2">Brco_2
-				<ul>
-				  <li id="brco_2_1">Brco_2_1
-				    <ul>
-					  <li id="brco_2_1_1">Brco_2_1_1</li>
-					  <li id="brco_2_1_2">Brco_2_1_2</li>
-					  <li id="brco_2_1_3">Brco_2_1_3</li>
-					  <li id="brco_2_1_4">Brco_2_1_4</li>
-					  <li id="brco_2_1_5">Brco_2_1_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_2_2">Brco_2_2
-				    <ul>
-    				  <li id="brco_2_2_1">Brco_2_2_1</li>
-					  <li id="brco_2_2_2">Brco_2_2_2</li>
-					  <li id="brco_2_2_3">Brco_2_2_3</li>
-					  <li id="brco_2_2_4">Brco_2_2_4</li>
-					  <li id="brco_2_2_5">Brco_2_2_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_2_3">Brco_2_3
-					<ul>
-    				  <li id="brco_2_3_1">Brco_2_3_1</li>
-					  <li id="brco_2_3_2">Brco_2_3_2</li>
-					  <li id="brco_2_3_3">Brco_2_3_3</li>
-					  <li id="brco_2_3_4">Brco_2_3_4</li>
-					  <li id="brco_2_3_5">Brco_2_3_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_2_4">Brco_2_4
-					<ul>
-    				  <li id="brco_2_4_1">Brco_2_4_1</li>
-					  <li id="brco_2_4_2">Brco_2_4_2</li>
-					  <li id="brco_2_4_3">Brco_2_4_3</li>
-					  <li id="brco_2_4_4">Brco_2_4_4</li>
-					  <li id="brco_2_4_5">Brco_2_4_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_2_5">Brco_2_5
-				    <ul>
-    				  <li id="brco_2_5_1">Brco_2_5_1</li>
-					  <li id="brco_2_5_2">Brco_2_5_2</li>
-					  <li id="brco_2_5_3">Brco_2_5_3</li>
-					  <li id="brco_2_5_4">Brco_2_5_4</li>
-					  <li id="brco_2_5_5">Brco_2_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="brco_3">Brco_3
-				<ul>
-				  <li id="brco_3_1">Brco_3_1
-				    <ul>
-					  <li id="brco_3_1_1">Brco_3_1_1</li>
-					  <li id="brco_3_1_2">Brco_3_1_2</li>
-					  <li id="brco_3_1_3">Brco_3_1_3</li>
-					  <li id="brco_3_1_4">Brco_3_1_4</li>
-					  <li id="brco_3_1_5">Brco_3_1_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_3_2">Brco_3_2
-				    <ul>
-    				  <li id="brco_3_2_1">Brco_3_2_1</li>
-					  <li id="brco_3_2_2">Brco_3_2_2</li>
-					  <li id="brco_3_2_3">Brco_3_2_3</li>
-					  <li id="brco_3_2_4">Brco_3_2_4</li>
-					  <li id="brco_3_2_5">Brco_3_2_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_3_3">Brco_3_3
-					<ul>
-    				  <li id="brco_3_3_1">Brco_3_3_1</li>
-					  <li id="brco_3_3_2">Brco_3_3_2</li>
-					  <li id="brco_3_3_3">Brco_3_3_3</li>
-					  <li id="brco_3_3_4">Brco_3_3_4</li>
-					  <li id="brco_3_3_5">Brco_3_3_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_3_4">Brco_3_4
-					<ul>
-    				  <li id="brco_3_4_1">Brco_3_4_1</li>
-					  <li id="brco_3_4_2">Brco_3_4_2</li>
-					  <li id="brco_3_4_3">Brco_3_4_3</li>
-					  <li id="brco_3_4_4">Brco_3_4_4</li>
-					  <li id="brco_3_4_5">Brco_3_4_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_3_5">Brco_3_5
-				    <ul>
-    				  <li id="brco_3_5_1">Brco_3_5_1</li>
-					  <li id="brco_3_5_2">Brco_3_5_2</li>
-					  <li id="brco_3_5_3">Brco_3_5_3</li>
-					  <li id="brco_3_5_4">Brco_3_5_4</li>
-					  <li id="brco_3_5_5">Brco_3_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="brco_4">Brco_4
-				<ul>
-				  <li id="brco_4_1">Brco_4_1
-				    <ul>
-					  <li id="brco_4_1_1">Brco_4_1_1</li>
-					  <li id="brco_4_1_2">Brco_4_1_2</li>
-					  <li id="brco_4_1_3">Brco_4_1_3</li>
-					  <li id="brco_4_1_4">Brco_4_1_4</li>
-					  <li id="brco_4_1_5">Brco_4_1_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_4_2">Brco_4_2
-				    <ul>
-    				  <li id="brco_4_2_1">Brco_4_2_1</li>
-					  <li id="brco_4_2_2">Brco_4_2_2</li>
-					  <li id="brco_4_2_3">Brco_4_2_3
-					    <ul>
-							<li id="johannes">Johannes</li>
-						</ul>
-					  </li>
-					  <li id="brco_4_2_4">Brco_4_2_4</li>
-					  <li id="brco_4_2_5">Brco_4_2_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_4_3">Brco_4_3
-					<ul>
-    				  <li id="brco_4_3_1">Brco_4_3_1</li>
-					  <li id="brco_4_3_2">Brco_4_3_2</li>
-					  <li id="brco_4_3_3">Brco_4_3_3</li>
-					  <li id="brco_4_3_4">Brco_4_3_4</li>
-					  <li id="brco_4_3_5">Brco_4_3_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_4_4">Brco_4_4
-					<ul>
-    				  <li id="brco_4_4_1">Brco_4_4_1</li>
-					  <li id="brco_4_4_2">Brco_4_4_2</li>
-					  <li id="brco_4_4_3">Brco_4_4_3</li>
-					  <li id="brco_4_4_4">Brco_4_4_4</li>
-					  <li id="brco_4_4_5">Brco_4_4_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_4_5">Brco_4_5
-				    <ul>
-    				  <li id="brco_4_5_1">Brco_4_5_1</li>
-					  <li id="brco_4_5_2">Brco_4_5_2</li>
-					  <li id="brco_4_5_3">Brco_4_5_3</li>
-					  <li id="brco_4_5_4">Brco_4_5_4</li>
-					  <li id="brco_4_5_5">Brco_4_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-              <li id="brco_5">Brco_5
-				<ul>
-				  <li id="brco_5_1">Brco_5_1
-				    <ul>
-					  <li id="brco_5_1_1">Brco_5_1_1</li>
-					  <li id="brco_5_1_2">Brco_5_1_2</li>
-					  <li id="brco_5_1_3">Brco_5_1_3</li>
-					  <li id="brco_5_1_4">Brco_5_1_4</li>
-					  <li id="brco_5_1_5">Brco_5_1_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_5_2">Brco_5_2
-				    <ul>
-    				  <li id="brco_5_2_1">Brco_5_2_1</li>
-					  <li id="brco_5_2_2">Brco_5_2_2</li>
-					  <li id="brco_5_2_3">Brco_5_2_3</li>
-					  <li id="brco_5_2_4">Brco_5_2_4</li>
-					  <li id="brco_5_2_5">Brco_5_2_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_5_3">Brco_5_3
-					<ul>
-    				  <li id="brco_5_3_1">Brco_5_3_1</li>
-					  <li id="brco_5_3_2">Brco_5_3_2</li>
-					  <li id="brco_5_3_3">Brco_5_3_3</li>
-					  <li id="brco_5_3_4">Brco_5_3_4</li>
-					  <li id="brco_5_3_5">Brco_5_3_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_5_4">Brco_5_4
-					<ul>
-    				  <li id="brco_5_4_1">Brco_5_4_1</li>
-					  <li id="brco_5_4_2">Brco_5_4_2</li>
-					  <li id="brco_5_4_3">Brco_5_4_3</li>
-					  <li id="brco_5_4_4">Brco_5_4_4</li>
-					  <li id="brco_5_4_5">Brco_5_4_5</li>
-					</ul>
-				  </li>
-				  <li id="brco_5_5">Brco_5_5
-				    <ul>
-    				  <li id="brco_5_5_1">Brco_5_5_1</li>
-					  <li id="brco_5_5_2">Brco_5_5_2</li>
-					  <li id="brco_5_5_3">Brco_5_5_3</li>
-					  <li id="brco_5_5_4">Brco_5_5_4</li>
-					  <li id="brco_5_5_5">Brco_5_5_5</li>
-					</ul>
-				  </li>
-				</ul>
-			  </li>
-          </li>
-        </ul>
+    <script src="https://bossanova.uk/jspreadsheet/v4/jexcel.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css">
+    <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css" type="text/css">
 
-      </li>
-    </ul>
-  </div>
-  </div>
-  <div style="flex-grow: 100; padding: 0px 10px 0px 10px; margin: 0px 10px 0px 10px; border-left: 2px solid gray; height; height: 100vh;">
-    <div id="techniques_info" class="info" style="display: none;">
-      <h1 style="text-align: center;">Contemporary Techniques for Double Bass</h1>
-	  <div>
-	    This work is the result of my participation in the APD - Performance program at the Rythmic Conservatory of Copenhagen during the years 2020-2022.
-		<br><br>
-		It contains descriptions of 124.7 techniques using both text and video.<br>
-		The videos are divided in 2 types:
-		<ul>
-		  <li>Detailed technique</li>
-		  <li>Musical example of artistic usage</li>
-		</ul>
-	  </div>
-	  <br>
-	  <br>
-	  <br>
-	  <iframe style="display: block; margin-left: auto; margin-right: auto;" width="434" height="240" src="https://www.youtube.com/embed/SHPFmlfBXVo?t=1143" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div id="johannes_info" class="info" style="display: none;">
-      <h1 style="text-align: center;">Johannes är här</h1>
-    </div>
-    <div id="arco_info" class="info" style="display: none;">
-      <h1 style="text-align: center;">Arco: Bowing</h1>
-    </div>
-    <div id="brco_info" class="info" style="display: none;">
-      <h1 style="text-align: center;">Brco: Hitting</h1>
-    </div>
-    <div id="joakim_info" class="info" style="display: none;">
-      <h1 style="text-align: center;">Joakim är också här</h1>
-    </div>
+    <div id="spreadsheet" tabindex="1" class="jexcel_container">    </div>
 
-	</div>
-  </div>
-  </div>
+<div></div>
 
-  <!-- 4 include the jQuery library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-  <!-- 5 include the minified jstree source -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-  <script>
-  $(function () {
-    // 6 create an instance when the DOM is ready
-	$('#jstree').jstree({
-		"core" : {
-			"multiple" : false,
-			"animation" : 0,
-			"themes" : {
-				"variant" : "small"
-			}
-		},
-		'search': {
-			'case_insensitive': true,
-			'show_only_matches' : true
-		},
-		"plugins" : [ "wholerow", "search", "type", "sort" ]
-	});
-    // 7 bind to events triggered on the tree
-    $('#jstree').on("changed.jstree", function (e, data) {
-	  if (data.action === 'select_node')
-	  {
-        console.log(data.selected[0]);
-		id_info = '#' + data.selected[0] + '_info';
-		$('.info').hide();
-		$(id_info).show();
-		
-	  }
-    });
-	$('.info').hide();
-	$('#techniques_info').show();
-	
-    // 8 interact with the tree - either way is OK
-    $('#jstree').jstree('select_node', 'techniques');
-	
-	$('#search_str').keyup(function(){
-      $('#jstree').jstree(true).show_all();
-      $('#jstree').jstree('search', $(this).val());
-    });
-
-	$('#search_clr').click(function(){
-      $('#search_str').val("");
-	  $('#search_str').trigger("keyup");
-    });
-    $('#techniques').show();
-
-  });
-  </script>
 </body>
+
+<script>
+    var data = [
+        ['Jazz', 'Honda', '2019-02-12', '', true, '$ 2.000,00', '#777700', '<button class="myButton">x<br>44r4rr4r<br>rffrrf<br>edeeeedde</button>'],
+        ['Civic', 'Honda', '2018-07-11', '', true, '$ 4.000,01', '#007777'],
+    ];
+
+    jspreadsheet(document.getElementById('spreadsheet'), {
+        data: data,
+        columns: [
+            { type: 'text', title: 'Car', width: 120 },
+            { type: 'dropdown', title: 'Make', width: 150, source: ["Alfa Romeo", "Audi", "Bmw"] },
+            { type: 'calendar', title: 'Available', width: 150 },
+            { type: 'image', title: 'Photo', width: 120 },
+            { type: 'checkbox', title: 'Stock', width: 80 },
+            { type: 'numeric', title: 'Price', width: 100, mask: '$ #.##,00', decimal: ',' },
+            { type: 'color', width: 100, render: 'square'},
+			{ type: 'html', width: 100}
+        ]
+    }); 
+</script>
+
 </html>
