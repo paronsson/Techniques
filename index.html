@@ -77,7 +77,7 @@
   position: absolute;
   top: 1px;
   right: 1px;
-  font-size: 40px;
+  font-size: 60px;
   color: #df5151;
 }
 
@@ -97,19 +97,23 @@
     <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css">
     <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css" type="text/css">
 
+    <script src="jquery-3.6.0.min.js"></script>
+
     <div id="spreadsheet" tabindex="1" class="jexcel_container">    </div>
 
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
-	<iframe width="100%" height="90%" src="https://www.youtube.com/embed/FoTU59n8P-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  </div>
+    <div id="player"></div>
+  </div>
 </div>
 
 </body>
 
 <script>
+
     var data = [
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="myButton">Left hand between the bow & the bridge</button>', '<button class="myButton">Left hand shift between tones - harmonics</button>', '<button class="myButton">Ostinato on the D-strings with the thumb</button>', '<button class="myButton">Sporadic bow-pressure with thumb and finger</button>', '', '', '<img src="video.svg">', '<img src="video.svg" onclick="openNav()">' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="myButton">Left hand between the bow & the bridge</button>', '<button class="myButton">Left hand shift between tones - harmonics</button>', '<button class="myButton">Ostinato on the D-strings with the thumb</button>', '<button class="myButton">Sporadic bow-pressure with thumb and finger</button>', '', '', '<img data-videoid="bHQqvYy5KYo" data-start="50" data-end="" src="video.svg" onclick="openNav(this)">', '<img data-videoid="bHQqvYy5KYo" data-start="50" data-end="60" src="video.svg" onclick="openNav(this)">' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
@@ -149,13 +153,54 @@
             { type: 'html', title: 'Video Live',width: "110",  readOnly:true }
         ]
     }); 
-	
-	function openNav() {
+
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var play = 0;
+  var theVid;
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+      width: '90%',
+      height: '90%',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+  
+
+
+  function onPlayerReady(event) {
+    if (play) {
+	        event.target.playVideo();
+	}
+  }
+
+  var theVideo
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+		player.loadVideoById(theVideo);
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+  
+	function openNav(node) {
+        play = 1;
+		theVideo = {'videoId': node.dataset.videoid,'startSeconds': node.dataset.start,'endSeconds': node.dataset.end};
+		player.loadVideoById(theVideo);
         document.getElementById("myNav").style.display = "block";
         document.getElementById("spreadsheet").style.display = "none";		
     }
 
     function closeNav() {
+	    stopVideo();
         document.getElementById("myNav").style.display = "none";
         document.getElementById("spreadsheet").style.display = "block";
     }
