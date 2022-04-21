@@ -2,9 +2,20 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Jspreadsheet CE table - basic demo</title>
+    <title>Techniques</title>
 
    <style>
+   
+   img:hover {
+       background-color: #dadada;
+   }
+   
+    body {
+        background-color: #fafafa;
+    }
+	.jexcel_container {
+        background-color: #fafafa;
+	}
    .myButton {
 	box-shadow:0.251px 0.25px 0px 0px #3d321b;
     background:linear-gradient(to bottom, #f2f2f5 20%, #f9f9f9 80%);
@@ -12,31 +23,17 @@
 	border-radius:2px;
 	border:0.25px solid #184b79;
 	display:block;
-	cursor:pointer;
 	color:#000000;
 	font-family:Arial;
-	font-size:12px;
+	font-size:16px;
 	text-decoration:none;
 	text-color:#000000;
     white-space: normal !important;
     word-break:break-word;
-	width:84px;
-	height:100px;
+	width:118px;
+	height:125px;
+    pointer-events: none;
     }
-    .myButton:hover {
-	 background:linear-gradient(to bottom, #ecefda 5%, #e4e7df 100%);
-	 background-color:#5c5f2a;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-	 background:linear-gradient(to bottom, #ecefca 5%, #e4e7ff 100%);
-	 background-color:#5c5f9a;
-
-}
-
-
-
 
 
 
@@ -66,7 +63,7 @@
   font-size: 36px;
   color: #818181;
   display: block;
-  transition: 0.3s;
+  transition: 5s;
 }
 
 .overlay a:hover, .overlay a:focus {
@@ -92,14 +89,14 @@
 </head>
 
 <body>
-    <script src="https://bossanova.uk/jspreadsheet/v4/jexcel.js"></script>
-    <script src="https://jsuites.net/v4/jsuites.js"></script>
-    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css">
-    <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css" type="text/css">
+    <script src="jexcel.js"></script>
+    <script src="jsuites.js"></script>
+    <link rel="stylesheet" href="jsuites.css" type="text/css">
+    <link rel="stylesheet" href="jexcel.css" type="text/css">
 
     <script src="jquery-3.6.0.min.js"></script>
 
-    <div id="spreadsheet" tabindex="1" class="jexcel_container">    </div>
+    <div id="spreadsheet" tabindex="1" class="jexcel_container" bg-color="lightgray">    </div>
 
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -113,25 +110,25 @@
 <script>
 
     var data = [
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="myButton">Left hand between the bow & the bridge</button>', '<button class="myButton">Left hand shift between tones - harmonics</button>', '<button class="myButton">Ostinato on the D-strings with the thumb</button>', '<button class="myButton">Sporadic bow-pressure with thumb and finger</button>', '', '', '<img data-videoid="bHQqvYy5KYo" data-start="50" data-end="" src="video.svg" onclick="openNav(this)">', '<img data-videoid="bHQqvYy5KYo" data-start="50" data-end="60" src="video.svg" onclick="openNav(this)">' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="myButton">Left hand between the bow & the bridge</button>', '<button class="myButton">Left hand shift between tones - harmonics</button>', '<button class="myButton">Ostinato on the D-strings with the thumb</button>', '<button class="myButton">Sporadic bow-pressure with thumb and finger</button>', '<div background-color="#fafafa"', '', '<img data-videoid="bHQqvYy5KYo" data-start="50" data-end="" src="video2.png" onclick="openNav(this)">', '<img data-videoid="FoTU59n8P-0" data-start="50" data-end="58" src="video2.png" onclick="openNav(this)">' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Left hand shift between tones - harmonics</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Ostinato on the D-strings with the thumb</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
+        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Sporadic bow-pressure with thumb and finger</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
         ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
     ];
 
@@ -139,18 +136,19 @@
 	    editable: false,
 		columnSorting : false,
         data: data,
+        search:true,
         columns: [
             { type: 'text', title: 'Heading 1', width:'0', readOnly:true },
-            { type: 'html', title: 'Heading 1', width:'93' , readOnly:true },
-            { type: 'html', title: 'Heading 2', width:'93', readOnly:true },
-            { type: 'html', title: 'Heading 3', width:'93', readOnly:true },
-            { type: 'html', title: 'Heading 4', width:'93', readOnly:true },
-            { type: 'html', title: 'Heading 5', width:'93', readOnly:true },
-            { type: 'html', title: 'Heading 6', width:'93', readOnly:true },
-            { type: 'html', title: 'Heading 7', width:'93', readOnly:true },
-            { type: 'html', title: 'Heading 8', width:'93', readOnly:true },
-            { type: 'html', title: 'Video technique', width: "110", readOnly:true },
-            { type: 'html', title: 'Video Live',width: "110",  readOnly:true }
+            { type: 'html', title: 'Heading 1', width:'128' , readOnly:true },
+            { type: 'html', title: 'Heading 2', width:'128', readOnly:true },
+            { type: 'html', title: 'Heading 3', width:'128', readOnly:true },
+            { type: 'html', title: 'Heading 4', width:'128', readOnly:true },
+            { type: 'html', title: 'Heading 5', width:'128', readOnly:true },
+            { type: 'html', title: 'Heading 6', width:'128', readOnly:true },
+            { type: 'html', title: 'Heading 7', width:'128', readOnly:true },
+            { type: 'html', title: 'Heading 8', width:'128', readOnly:true },
+            { type: 'html', title: 'Video technique', width: "128", readOnly:true },
+            { type: 'html', title: 'Video Live',width: "128",  readOnly:true }
         ]
     }); 
 
@@ -159,13 +157,12 @@
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  var play = 0;
   var theVid;
   var player;
   function onYouTubePlayerAPIReady() {
     player = new YT.Player('player', {
-      width: '90%',
-      height: '90%',
+      width: '95%',
+      height: '95%',
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
@@ -176,9 +173,7 @@
 
 
   function onPlayerReady(event) {
-    if (play) {
 	        event.target.playVideo();
-	}
   }
 
   var theVideo
@@ -192,7 +187,6 @@
   }
   
 	function openNav(node) {
-        play = 1;
 		theVideo = {'videoId': node.dataset.videoid,'startSeconds': node.dataset.start,'endSeconds': node.dataset.end};
 		player.loadVideoById(theVideo);
         document.getElementById("myNav").style.display = "block";
