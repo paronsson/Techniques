@@ -125,10 +125,13 @@
     <div id="player"></div>
   </div>
 </div>
-<div id="localvid" class="overlay">
+<div id="localvideo" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
-    <div id="player"></div>
+    <video id="video" controls>
+      <source id='localvidsource' src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>  
   </div>
 </div>
 
@@ -156,7 +159,7 @@
         ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Ostinato on the D-strings with the thumb</button>', '<button class="hButton">Arco</button>', '' ],
         ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
         ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Sporadic bow-pressure with thumb and finger</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
-        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<img data-videoid="FoTU59n8P-0" data-start="50" data-end="58" src="video.png" onclick="openYoutube(this)">' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<img data-videoid="FoTU59n8P-0" data-start="50" data-end="58" src="video.png" onclick="openYoutube(this)">', '<img data-src="X.mp4" src="video.png" onclick="openLocalVideo(this)">' ],
     ];
 
     jspreadsheet(document.getElementById('spreadsheet'), {
@@ -212,6 +215,8 @@
   function stopVideo() {
     player.stopVideo();
   }
+
+
   
 	function openYoutube(node) {
 		theVideo = {'videoId': node.dataset.videoid,'startSeconds': node.dataset.start,'endSeconds': node.dataset.end};
@@ -219,9 +224,18 @@
         document.getElementById("youtube").style.display = "block";
     }
 
+	function openLocalVideo(node) {
+        document.getElementById("localvideo").style.display = "block";
+	    document.getElementById("localvidsource").src = node.dataset.src;
+		document.getElementById("video").play();
+		
+    }
+
+
     function closeNav() {
 	    stopVideo();
         document.getElementById("youtube").style.display = "none";
+        document.getElementById("localvideo").style.display = "none";
     }
  
 </script>
