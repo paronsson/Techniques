@@ -16,8 +16,9 @@
 	.jexcel_container {
         background-color: #fafafa;
 	}
-   .myButton {
-	box-shadow:0.251px 0.25px 0px 0px #3d321b;
+	
+   .hButton {
+	box-shadow:0.25px 0.25px 0px 0px #3d321b;
     background:linear-gradient(to bottom, #f2f2f5 20%, #f9f9f9 80%);
 	background-color:#5c5f2a;
 	border-radius:5px;
@@ -34,6 +35,27 @@
 	height:125px;
     pointer-events: none;
     }
+	
+   .dButton {
+	box-shadow:0.25px 0.25px 0px 0px #3d321b;
+    background:linear-gradient(to bottom, #f0f0f3 40%, #f3f3f5 80%);
+	background-color:#5c5f2a;
+	border-radius:5px;
+	border:0.25px solid #184b79;
+	display:block;
+	color:#000000;
+	font-family:Arial;
+	font-size:16px;
+	text-decoration:none;
+	text-color:#000000;
+    white-space: normal !important;
+    word-break:break-word;
+	width:118px;
+	height:125px;
+    pointer-events: none;
+    }
+	
+	
 
 	   
 .overlay {
@@ -41,7 +63,7 @@
   width: 100%;
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: 0;
   background-color: rgb(0,0,0);
@@ -97,7 +119,13 @@
 
     <div id="spreadsheet" tabindex="1" class="jexcel_container" bg-color="lightgray">    </div>
 
-<div id="myNav" class="overlay">
+<div id="youtube" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <div id="player"></div>
+  </div>
+</div>
+<div id="localvid" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
     <div id="player"></div>
@@ -109,26 +137,26 @@
 <script>
 
     var data = [
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="myButton">Left hand between the bow & the bridge</button>', '<button class="myButton">Left hand shift between tones - harmonics</button>', '<button class="myButton">Ostinato on the D-strings with the thumb</button>', '<button class="myButton">Sporadic bow-pressure with thumb and finger</button>', '<div background-color="#fafafa"', '', '<img data-videoid="FoTU59n8P-0" data-start="70" data-end="" src="video2.png" onclick="openNav(this)">', '<img data-videoid="FoTU59n8P-0" data-start="50" data-end="58" src="video2.png" onclick="openNav(this)">' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Left hand shift between tones - harmonics</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Ostinato on the D-strings with the thumb</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Sporadic bow-pressure with thumb and finger</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '' ],
-        ['1', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<button class="myButton">Arco</button>', '<img data-videoid="FoTU59n8P-0" data-start="50" data-end="58" src="video2.png" onclick="openNav(this)">' ],
+        ['<button class="dButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="hButton">Left hand between the bow & the bridge</button>', '<button class="hButton">Left hand shift between tones - harmonics</button>', '<button class="hButton">Ostinato on the D-strings with the thumb</button>', '<button class="hButton">Sporadic bow-pressure with thumb and finger</button>', '<div background-color="#fafafa"', '', '<img data-videoid="FoTU59n8P-0" data-start="70" data-end="" src="video.png" onclick="openYoutube(this)">', '<img data-videoid="FoTU59n8P-0" data-start="50" data-end="58" src="video.png" onclick="openYoutube(this)">' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Reversed bow (hair poiting up - wood down)</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Left hand shift between tones - harmonics</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Ostinato on the D-strings with the thumb</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Sporadic bow-pressure with thumb and finger</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '' ],
+        ['1', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<button class="hButton">Arco</button>', '<img data-videoid="FoTU59n8P-0" data-start="50" data-end="58" src="video.png" onclick="openYoutube(this)">' ],
     ];
 
     jspreadsheet(document.getElementById('spreadsheet'), {
@@ -137,7 +165,7 @@
         data: data,
         search:true,
         columns: [
-            { type: 'text', title: 'Heading 1', width:'0', readOnly:true },
+            { type: 'html', title: 'Description', width:'128', readOnly:true },
             { type: 'html', title: 'Heading 1', width:'128' , readOnly:true },
             { type: 'html', title: 'Heading 2', width:'128', readOnly:true },
             { type: 'html', title: 'Heading 3', width:'128', readOnly:true },
@@ -185,17 +213,15 @@
     player.stopVideo();
   }
   
-	function openNav(node) {
+	function openYoutube(node) {
 		theVideo = {'videoId': node.dataset.videoid,'startSeconds': node.dataset.start,'endSeconds': node.dataset.end};
 		player.loadVideoById(theVideo);
-        document.getElementById("myNav").style.display = "block";
-        document.getElementById("spreadsheet").style.display = "none";		
+        document.getElementById("youtube").style.display = "block";
     }
 
     function closeNav() {
 	    stopVideo();
-        document.getElementById("myNav").style.display = "none";
-        document.getElementById("spreadsheet").style.display = "block";
+        document.getElementById("youtube").style.display = "none";
     }
  
 </script>
