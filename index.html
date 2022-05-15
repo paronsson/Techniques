@@ -66,6 +66,8 @@
   z-index: 10;
   top: 0;
   left: 0;
+  top: 0;
+  left: 0;
   background-color: rgb(0,0,0);
 }
 
@@ -74,6 +76,7 @@
   top: 1%;
   left: 5%;
   width: 90%;
+  height: 90%;
   text-align: center;
   margin-top: 1%;
 }
@@ -125,14 +128,13 @@
     <div id="player"></div>
   </div>
 </div>
+
 <div id="localvideo" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
-    <video id="video" controls>
-      <source id='localvidsource' src="" type="video/mp4">
+    <video id="video" class="overlay-content" controls>
+      <source id="locvidsrc" src="" type="video/mp4">
       Your browser does not support the video tag.
     </video>  
-  </div>
 </div>
 
 </body>
@@ -225,10 +227,11 @@
     }
 
 	function openLocalVideo(node) {
+   		document.getElementById("video").pause();
+		document.getElementById("locvidsrc").src = "" + node.dataset.src;
+        document.getElementById("video").load();		
         document.getElementById("localvideo").style.display = "block";
-	    document.getElementById("localvidsource").src = node.dataset.src;
 		document.getElementById("video").play();
-		
     }
 
 
@@ -236,6 +239,7 @@
 	    stopVideo();
         document.getElementById("youtube").style.display = "none";
         document.getElementById("localvideo").style.display = "none";
+		document.getElementById("video").pause();
     }
  
 </script>
