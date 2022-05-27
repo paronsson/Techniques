@@ -372,7 +372,9 @@
 	function openYoutube(node) {
 		theVideo = {'videoId': node.dataset.videoid,'startSeconds': node.dataset.start,'endSeconds': node.dataset.end};
 		player.loadVideoById(theVideo);
-        document.getElementById("youtube").style.display = "block";
+		setTimeout(function(){
+            document.getElementById("youtube").style.display = "block";
+        }, 150);
     }
 
 	function openLocalVideo(node) {
