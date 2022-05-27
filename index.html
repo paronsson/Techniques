@@ -307,7 +307,12 @@
 		['<button class="dButton">Varied Bowing &mdash; Left Hand Between The Bow And The Bridge  &mdash; Drill &mdash; Harmonics With The Thumb </button>','<button class="hButton">bow</button>','<button class="hButton">varied bowing</button>','<button class="hButton">sul tasto</button>','<button class="hButton">varied bow pressure</button>','<button class="hButton">fast-average bow speed </button>','<button class="hButton">between the bow and the bridge</button>','<button class="hButton">drill-harmonics with the thumb</button>','<button class="hButton">harmonics</button>','<img data-videoid="lytXle2T4mI" data-start="0" data-end="" src="video.png" onClick=openYoutube(this)>','<img data-videoid="FoTU59n8P-0" data-start="679" data-end="" src="video.png" onClick=openYoutube(this)>']
     ];
 
-    jspreadsheet(document.getElementById('spreadsheet'), {
+    var doUnselect = function(instance) {
+        table.resetSelection();
+    };
+
+
+    var table = jspreadsheet(document.getElementById('spreadsheet'), {
 	    editable: false,
 		columnSorting : false,
 		data: data,
@@ -324,7 +329,8 @@
             { type: 'html', title: 'Tone/Harmonics/\nMultiphonics/Air/\nNoise/Percussive', width:'128', readOnly:true },
             { type: 'html', title: 'Video Technique', width: "128", readOnly:true },
             { type: 'html', title: 'Video Live',width: "128",  readOnly:true }
-        ]
+        ],
+	    onselection: doUnselect,
     }); 
 
   var tag = document.createElement('script');
